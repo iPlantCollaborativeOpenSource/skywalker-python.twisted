@@ -3,7 +3,7 @@
 #
 # DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
 #
-#  options string: py:twisted
+#  options string: py:twisted,new_style,utf8strings
 #
 
 from thrift.Thrift import TType, TMessageType, TException, TApplicationException
@@ -17,7 +17,7 @@ except:
 
 
 
-class Provider:
+class Provider(object):
   """
   Attributes:
    - uuid
@@ -54,17 +54,17 @@ class Provider:
         break
       if fid == 1:
         if ftype == TType.STRING:
-          self.uuid = iprot.readString();
+          self.uuid = iprot.readString().decode('utf-8')
         else:
           iprot.skip(ftype)
       elif fid == 2:
         if ftype == TType.STRING:
-          self.name = iprot.readString();
+          self.name = iprot.readString().decode('utf-8')
         else:
           iprot.skip(ftype)
       elif fid == 3:
         if ftype == TType.STRING:
-          self.hash = iprot.readString();
+          self.hash = iprot.readString().decode('utf-8')
         else:
           iprot.skip(ftype)
       elif fid == 4:
@@ -72,8 +72,8 @@ class Provider:
           self.options = {}
           (_ktype1, _vtype2, _size0 ) = iprot.readMapBegin()
           for _i4 in xrange(_size0):
-            _key5 = iprot.readString();
-            _val6 = iprot.readString();
+            _key5 = iprot.readString().decode('utf-8')
+            _val6 = iprot.readString().decode('utf-8')
             self.options[_key5] = _val6
           iprot.readMapEnd()
         else:
@@ -95,22 +95,22 @@ class Provider:
     oprot.writeStructBegin('Provider')
     if self.uuid is not None:
       oprot.writeFieldBegin('uuid', TType.STRING, 1)
-      oprot.writeString(self.uuid)
+      oprot.writeString(self.uuid.encode('utf-8'))
       oprot.writeFieldEnd()
     if self.name is not None:
       oprot.writeFieldBegin('name', TType.STRING, 2)
-      oprot.writeString(self.name)
+      oprot.writeString(self.name.encode('utf-8'))
       oprot.writeFieldEnd()
     if self.hash is not None:
       oprot.writeFieldBegin('hash', TType.STRING, 3)
-      oprot.writeString(self.hash)
+      oprot.writeString(self.hash.encode('utf-8'))
       oprot.writeFieldEnd()
     if self.options is not None:
       oprot.writeFieldBegin('options', TType.MAP, 4)
       oprot.writeMapBegin(TType.STRING, TType.STRING, len(self.options))
       for kiter7,viter8 in self.options.items():
-        oprot.writeString(kiter7)
-        oprot.writeString(viter8)
+        oprot.writeString(kiter7.encode('utf-8'))
+        oprot.writeString(viter8.encode('utf-8'))
       oprot.writeMapEnd()
       oprot.writeFieldEnd()
     if self.time is not None:
@@ -148,7 +148,7 @@ class Provider:
   def __ne__(self, other):
     return not (self == other)
 
-class Identity:
+class Identity(object):
   """
   Attributes:
    - uuid
@@ -185,17 +185,17 @@ class Identity:
         break
       if fid == 1:
         if ftype == TType.STRING:
-          self.uuid = iprot.readString();
+          self.uuid = iprot.readString().decode('utf-8')
         else:
           iprot.skip(ftype)
       elif fid == 2:
         if ftype == TType.STRING:
-          self.name = iprot.readString();
+          self.name = iprot.readString().decode('utf-8')
         else:
           iprot.skip(ftype)
       elif fid == 3:
         if ftype == TType.STRING:
-          self.hash = iprot.readString();
+          self.hash = iprot.readString().decode('utf-8')
         else:
           iprot.skip(ftype)
       elif fid == 4:
@@ -203,8 +203,8 @@ class Identity:
           self.options = {}
           (_ktype10, _vtype11, _size9 ) = iprot.readMapBegin()
           for _i13 in xrange(_size9):
-            _key14 = iprot.readString();
-            _val15 = iprot.readString();
+            _key14 = iprot.readString().decode('utf-8')
+            _val15 = iprot.readString().decode('utf-8')
             self.options[_key14] = _val15
           iprot.readMapEnd()
         else:
@@ -226,22 +226,22 @@ class Identity:
     oprot.writeStructBegin('Identity')
     if self.uuid is not None:
       oprot.writeFieldBegin('uuid', TType.STRING, 1)
-      oprot.writeString(self.uuid)
+      oprot.writeString(self.uuid.encode('utf-8'))
       oprot.writeFieldEnd()
     if self.name is not None:
       oprot.writeFieldBegin('name', TType.STRING, 2)
-      oprot.writeString(self.name)
+      oprot.writeString(self.name.encode('utf-8'))
       oprot.writeFieldEnd()
     if self.hash is not None:
       oprot.writeFieldBegin('hash', TType.STRING, 3)
-      oprot.writeString(self.hash)
+      oprot.writeString(self.hash.encode('utf-8'))
       oprot.writeFieldEnd()
     if self.options is not None:
       oprot.writeFieldBegin('options', TType.MAP, 4)
       oprot.writeMapBegin(TType.STRING, TType.STRING, len(self.options))
       for kiter16,viter17 in self.options.items():
-        oprot.writeString(kiter16)
-        oprot.writeString(viter17)
+        oprot.writeString(kiter16.encode('utf-8'))
+        oprot.writeString(viter17.encode('utf-8'))
       oprot.writeMapEnd()
       oprot.writeFieldEnd()
     if self.time is not None:
@@ -279,7 +279,7 @@ class Identity:
   def __ne__(self, other):
     return not (self == other)
 
-class Instance:
+class Instance(object):
   """
   Attributes:
    - uuid
@@ -331,17 +331,17 @@ class Instance:
         break
       if fid == 1:
         if ftype == TType.STRING:
-          self.uuid = iprot.readString();
+          self.uuid = iprot.readString().decode('utf-8')
         else:
           iprot.skip(ftype)
       elif fid == 2:
         if ftype == TType.STRING:
-          self.machine_uuid = iprot.readString();
+          self.machine_uuid = iprot.readString().decode('utf-8')
         else:
           iprot.skip(ftype)
       elif fid == 3:
         if ftype == TType.STRING:
-          self.name = iprot.readString();
+          self.name = iprot.readString().decode('utf-8')
         else:
           iprot.skip(ftype)
       elif fid == 4:
@@ -349,7 +349,7 @@ class Instance:
           self.public_addresses = []
           (_etype21, _size18) = iprot.readListBegin()
           for _i22 in xrange(_size18):
-            _elem23 = iprot.readString();
+            _elem23 = iprot.readString().decode('utf-8')
             self.public_addresses.append(_elem23)
           iprot.readListEnd()
         else:
@@ -359,29 +359,29 @@ class Instance:
           self.private_addresses = []
           (_etype27, _size24) = iprot.readListBegin()
           for _i28 in xrange(_size24):
-            _elem29 = iprot.readString();
+            _elem29 = iprot.readString().decode('utf-8')
             self.private_addresses.append(_elem29)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
       elif fid == 6:
         if ftype == TType.STRING:
-          self.extra = iprot.readString();
+          self.extra = iprot.readString().decode('utf-8')
         else:
           iprot.skip(ftype)
       elif fid == 7:
         if ftype == TType.STRING:
-          self.project_id = iprot.readString();
+          self.project_id = iprot.readString().decode('utf-8')
         else:
           iprot.skip(ftype)
       elif fid == 8:
         if ftype == TType.STRING:
-          self.provider_hash = iprot.readString();
+          self.provider_hash = iprot.readString().decode('utf-8')
         else:
           iprot.skip(ftype)
       elif fid == 9:
         if ftype == TType.STRING:
-          self.identity_hash = iprot.readString();
+          self.identity_hash = iprot.readString().decode('utf-8')
         else:
           iprot.skip(ftype)
       elif fid == 10:
@@ -401,45 +401,45 @@ class Instance:
     oprot.writeStructBegin('Instance')
     if self.uuid is not None:
       oprot.writeFieldBegin('uuid', TType.STRING, 1)
-      oprot.writeString(self.uuid)
+      oprot.writeString(self.uuid.encode('utf-8'))
       oprot.writeFieldEnd()
     if self.machine_uuid is not None:
       oprot.writeFieldBegin('machine_uuid', TType.STRING, 2)
-      oprot.writeString(self.machine_uuid)
+      oprot.writeString(self.machine_uuid.encode('utf-8'))
       oprot.writeFieldEnd()
     if self.name is not None:
       oprot.writeFieldBegin('name', TType.STRING, 3)
-      oprot.writeString(self.name)
+      oprot.writeString(self.name.encode('utf-8'))
       oprot.writeFieldEnd()
     if self.public_addresses is not None:
       oprot.writeFieldBegin('public_addresses', TType.LIST, 4)
       oprot.writeListBegin(TType.STRING, len(self.public_addresses))
       for iter30 in self.public_addresses:
-        oprot.writeString(iter30)
+        oprot.writeString(iter30.encode('utf-8'))
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.private_addresses is not None:
       oprot.writeFieldBegin('private_addresses', TType.LIST, 5)
       oprot.writeListBegin(TType.STRING, len(self.private_addresses))
       for iter31 in self.private_addresses:
-        oprot.writeString(iter31)
+        oprot.writeString(iter31.encode('utf-8'))
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.extra is not None:
       oprot.writeFieldBegin('extra', TType.STRING, 6)
-      oprot.writeString(self.extra)
+      oprot.writeString(self.extra.encode('utf-8'))
       oprot.writeFieldEnd()
     if self.project_id is not None:
       oprot.writeFieldBegin('project_id', TType.STRING, 7)
-      oprot.writeString(self.project_id)
+      oprot.writeString(self.project_id.encode('utf-8'))
       oprot.writeFieldEnd()
     if self.provider_hash is not None:
       oprot.writeFieldBegin('provider_hash', TType.STRING, 8)
-      oprot.writeString(self.provider_hash)
+      oprot.writeString(self.provider_hash.encode('utf-8'))
       oprot.writeFieldEnd()
     if self.identity_hash is not None:
       oprot.writeFieldBegin('identity_hash', TType.STRING, 9)
-      oprot.writeString(self.identity_hash)
+      oprot.writeString(self.identity_hash.encode('utf-8'))
       oprot.writeFieldEnd()
     if self.time is not None:
       oprot.writeFieldBegin('time', TType.I32, 10)
@@ -485,7 +485,7 @@ class Instance:
   def __ne__(self, other):
     return not (self == other)
 
-class Instances:
+class Instances(object):
   """
   Attributes:
    - instances
@@ -530,12 +530,12 @@ class Instances:
           iprot.skip(ftype)
       elif fid == 2:
         if ftype == TType.STRING:
-          self.provider_hash = iprot.readString();
+          self.provider_hash = iprot.readString().decode('utf-8')
         else:
           iprot.skip(ftype)
       elif fid == 3:
         if ftype == TType.STRING:
-          self.identity_hash = iprot.readString();
+          self.identity_hash = iprot.readString().decode('utf-8')
         else:
           iprot.skip(ftype)
       elif fid == 4:
@@ -562,11 +562,11 @@ class Instances:
       oprot.writeFieldEnd()
     if self.provider_hash is not None:
       oprot.writeFieldBegin('provider_hash', TType.STRING, 2)
-      oprot.writeString(self.provider_hash)
+      oprot.writeString(self.provider_hash.encode('utf-8'))
       oprot.writeFieldEnd()
     if self.identity_hash is not None:
       oprot.writeFieldBegin('identity_hash', TType.STRING, 3)
-      oprot.writeString(self.identity_hash)
+      oprot.writeString(self.identity_hash.encode('utf-8'))
       oprot.writeFieldEnd()
     if self.time is not None:
       oprot.writeFieldBegin('time', TType.I32, 4)
@@ -629,7 +629,7 @@ class OpenStackException(TException):
         break
       if fid == 1:
         if ftype == TType.STRING:
-          self.message = iprot.readString();
+          self.message = iprot.readString().decode('utf-8')
         else:
           iprot.skip(ftype)
       else:
@@ -644,7 +644,7 @@ class OpenStackException(TException):
     oprot.writeStructBegin('OpenStackException')
     if self.message is not None:
       oprot.writeFieldBegin('message', TType.STRING, 1)
-      oprot.writeString(self.message)
+      oprot.writeString(self.message.encode('utf-8'))
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
     oprot.writeStructEnd()
@@ -699,7 +699,7 @@ class ConnectionException(TException):
         break
       if fid == 1:
         if ftype == TType.STRING:
-          self.message = iprot.readString();
+          self.message = iprot.readString().decode('utf-8')
         else:
           iprot.skip(ftype)
       else:
@@ -714,7 +714,7 @@ class ConnectionException(TException):
     oprot.writeStructBegin('ConnectionException')
     if self.message is not None:
       oprot.writeFieldBegin('message', TType.STRING, 1)
-      oprot.writeString(self.message)
+      oprot.writeString(self.message.encode('utf-8'))
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
     oprot.writeStructEnd()
@@ -769,7 +769,7 @@ class DeployException(TException):
         break
       if fid == 1:
         if ftype == TType.STRING:
-          self.message = iprot.readString();
+          self.message = iprot.readString().decode('utf-8')
         else:
           iprot.skip(ftype)
       else:
@@ -784,7 +784,7 @@ class DeployException(TException):
     oprot.writeStructBegin('DeployException')
     if self.message is not None:
       oprot.writeFieldBegin('message', TType.STRING, 1)
-      oprot.writeString(self.message)
+      oprot.writeString(self.message.encode('utf-8'))
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
     oprot.writeStructEnd()
